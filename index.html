@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Minha Agenda</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="https://kit.fontawesome.com/1b79c4b552.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div onclick="mostrarNovoContato()" class="adicionar">
+            <div class="adicionar-contato">
+                <i class="fas fa-plus"></i>
+            </div>
+        </div>
+
+        <div class="contato-transparente">
+            <div class="novo-contato">
+                <div class="contato-cabecalho">
+                    <i class="fas fa-plus"></i>
+                    <span>Adicionar contato</span>
+                </div>
+                <div class="contato-conteudo">
+                    <div class="contato-info1">
+                        <label>Nome</label> <br>
+                        <input id="nome" class="contato-input" placeholder="Nome do contato" type="text">
+                    </div>
+                    <div class="contato-info2">
+                        <div class="contato-telefone">
+                            <label>Telefone</label> <br>
+                            <input id="telefone" class="contato-input" placeholder="(33) 9 0011-2200" type="number">
+                        </div>
+                        <div class="contato-email">
+                            <label>Email</label> <br>
+                            <input id="email" class="contato-input" placeholder="exemplo@provedor.com" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-rodape">
+                    <button onclick="onSalvarDados()" class="btn-verde"><i class="fas fa-check"></i>Salvar</button>
+                    <button onclick="ocultarNovoContato()" class="btn-laranja"><i class="fas fa-times"></i>Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-barra">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="imgs/logo.png">
+                </div>
+                <div class="logo-nome">
+                    <span class="cor1">Minha</span>
+                    <span class="cor2">agenda</span>
+                </div>
+            </div>
+            <div class="menu-lista">
+                <div class="menu-item">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>Contatos</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-star"></i>
+                    <span>Favoritos</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-ban"></i>
+                    <span>Bloqueados</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Sobre</span>
+                </div>
+               
+            </div>
+        </div>
+        <div class="conteudo-completo">
+            <div class="cabecalho">
+                <i onclick="alternarMenuBarra()" class="fa fa-bars" aria-hidden="true"></i>
+                <h2>Minha agenda</h2>
+            </div>
+            <div class="conteudo">
+                <div class="pesquisa">
+                    <i onclick="pesquisa()" class="fa fa-search" aria-hidden="true"></i>
+                    <input onkeyup="pesquisa()" type="text" placeholder="Pesquisar" name="pesquisa">
+                </div>
+                <div class="contatos">                   
+                                                         
+                </div>
+             </div>
+        </div>      
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
