@@ -1,92 +1,108 @@
 <html>
-    <head>
-        <title>Minha Agenda</title>
+    <head lang="pt-br">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon.ico"/>
+
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/index.css">
         <script src="https://kit.fontawesome.com/1b79c4b552.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="css/utils.css">
+        <link rel="stylesheet" href="index.css">
+        <title>Minha Agenda</title>
     </head>
     <body>
-        <div onclick="mostrarNovoContato()" class="adicionar">
-            <div class="adicionar-contato">
-                <i class="fas fa-plus"></i>
+        <div class="app">
+            <div class="sidebar active">
+                <div class="sidebar-header">
+                    <div class="logo">
+                        <img class="logo-img" src="img/logo.png">
+                        <div class="logo-title">
+                            <span class="logo-title1">Minha</span>
+                            <span class="logo-title2">Agenda</span>
+                        </div>
+                    </div>
+                    <!-- <i name="btn_mobile_sidebar" class="fas fa-times"></i> -->
+                </div>
+                <div class="sidebar-content">
+                    <div class="sidebar-nav-item" data-page="page-contacts">
+                        <i class="fa fa-user"></i>
+                        <span>Contatos</span>
+                    </div>
+                    <div class="sidebar-nav-item" data-page="page-favorites">
+                        <i class="fas fa-star" style="color: var(--yellow-color)"></i>
+                        <span>Favoritos</span>
+                    </div>
+                    <div class="sidebar-nav-item" data-page="page-blocked">
+                        <i class="fas fa-ban" style="color: var(--orange-color)"></i>
+                        <span>Bloqueados</span>
+                    </div>
+                    <div class="sidebar-nav-item" data-page="page-about">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Sobre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pages">
+                <div class="pages-header">
+                    <div class="pages-nav">
+                        <i name="btn_toggle_sidebar" class="fa fa-bars"></i>
+                        <h2>Contatos</h2>
+                    </div>
+                    <div class="search-field">
+                        <i name="btn_search_field" class="fa fa-search"></i>
+                        <input name="search_field" placeholder="Procurar contato" >
+                    </div>
+                </div>
+                <div class="contacts page">
+                    <div class="contact-list"></div>
+                </div>
             </div>
         </div>
 
-        <div class="contato-transparente">
-            <div class="novo-contato">
-                <div class="contato-cabecalho">
-                    <i class="fas fa-plus"></i>
-                    <span>Adicionar contato</span>
+        <!-- SEPARATOR -->
+        <div name="btn_show_modal" class="btn-modal">
+            <i class="fas fa-plus"></i>
+        </div>
+        <div class="background-modal">
+            <div class="modal-contact">
+                <div class="modal-contact-header">
+                    <i name="btn_cancel" class="btn-cancel fas fa-times"></i>
+                    <h3>Novo contato</h3>
+                    <i name="btn_create_contact" class="btn-confirm fas fa-check"></i>
                 </div>
-                <div class="contato-conteudo">
-                    <div class="contato-info1">
-                        <label>Nome</label> <br>
-                        <input id="nome" class="contato-input" placeholder="Nome do contato" type="text">
-                    </div>
-                    <div class="contato-info2">
-                        <div class="contato-telefone">
-                            <label>Telefone</label> <br>
-                            <input id="telefone" class="contato-input" placeholder="(33) 9 0011-2200" type="number">
+                <i class="contact-img fas fa-user-circle"></i>
+                <form class="modal-form">
+                    <div class="modal-contact-content">
+                        <div class="modal-content-item">
+                            <div class="modal-contact-item-info">
+                                <label>Nome *</label>
+                                <input name="name" placeholder="nome do contato">
+                            </div>
                         </div>
-                        <div class="contato-email">
-                            <label>Email</label> <br>
-                            <input id="email" class="contato-input" placeholder="exemplo@provedor.com" type="text">
+                        <div class="modal-content-item">
+                            <div class="modal-contact-item-info">
+                                <label>Telefone *</label>
+                                <input name="phone" placeholder="(33) 9 0011-2200" data-mask="(00) 9 0000-0000">
+                            </div>
+                        </div>
+                        <div class="modal-content-item">
+                            <div class="modal-contact-item-info">
+                                <label>E-mail</label>
+                                <input name="email" placeholder="exemplo@provedor.com" type="email">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="contato-rodape">
-                    <button onclick="onSalvarDados()" class="btn-verde"><i class="fas fa-check"></i>Salvar</button>
-                    <button onclick="ocultarNovoContato()" class="btn-laranja"><i class="fas fa-times"></i>Cancelar</button>
-                </div>
+                </form>
             </div>
         </div>
+        <div class="background-black"></div>
 
-        <div class="menu-barra">
-            <div class="logo">
-                <div class="logo-img">
-                    <img src="imgs/logo.png">
-                </div>
-                <div class="logo-nome">
-                    <span class="cor1">Minha</span>
-                    <span class="cor2">agenda</span>
-                </div>
-            </div>
-            <div class="menu-lista">
-                <div class="menu-item">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>Contatos</span>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-star"></i>
-                    <span>Favoritos</span>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-ban"></i>
-                    <span>Bloqueados</span>
-                </div>
-                <div class="menu-item">
-                    <i class="fas fa-question-circle"></i>
-                    <span>Sobre</span>
-                </div>
-               
-            </div>
-        </div>
-        <div class="conteudo-completo">
-            <div class="cabecalho">
-                <i onclick="alternarMenuBarra()" class="fa fa-bars" aria-hidden="true"></i>
-                <h2>Minha agenda</h2>
-            </div>
-            <div class="conteudo">
-                <div class="pesquisa">
-                    <i onclick="pesquisa()" class="fa fa-search" aria-hidden="true"></i>
-                    <input onkeyup="pesquisa()" type="text" placeholder="Pesquisar" name="pesquisa">
-                </div>
-                <div class="contatos">                   
-                                                         
-                </div>
-             </div>
-        </div>      
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="js/utils.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
