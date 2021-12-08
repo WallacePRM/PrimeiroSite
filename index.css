@@ -118,24 +118,33 @@ body {
     background-color: var(--secundary-color);
 }
 
-.pages-haeder {
-    box-shadow: var(--box-shadow);
-}
+/* PAGES-HEADER */
 .pages-nav {
     display: flex;
     align-items: center;
     background-color: var(--purple-color);
     width: 100%;
-    padding: 20px 0;
+    padding: 15px;
     font-size: 0.8rem;
     color: #fff;
 }
 
 .pages-nav i {
     font-size: 1.2rem;
-    margin: 0 25px;
-    margin-right: 30px;
+    margin-right: 20px;
     cursor: pointer;
+}
+
+[name="btn_toggle_sidebar"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+[name="btn_toggle_sidebar"]:hover {
+    background-color: rgba(0, 0, 0, 0.137);
 }
 
 .page-content {
@@ -143,12 +152,15 @@ body {
 }
 
 .search-field {
+    position: fixed;
     display: flex;
     align-items: center;
     background-color: var(--main-color);
     color: rgb(98, 102, 114);
-    padding: 0 10px;
+    padding: 0 15px;
     border-bottom: var(--border);
+    width: 100%;
+    z-index: 1;
 }
 
 .search-field input {
@@ -166,16 +178,21 @@ body {
 }
 
 /* PAGE */
-.page {
+.screen {
     flex: 1;
+    display: none;
     overflow: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
+}
+.screen.active {
+    display: block;
 }
 
 /* CONTACT-LIST */
 .contact-list {
     padding-bottom: 30px;
+    padding-top: 49px;
 }
 
 .contact-list-separator {
@@ -278,6 +295,7 @@ body {
     font-size: 1.1rem;
     transition: transform .2s ease-out;
     cursor: pointer;
+    z-index: 2;
 }
 .btn-modal.active {
     display: flex;
@@ -306,7 +324,7 @@ body {
     display: flex;
 }
 
-.modal-contact {
+.modal {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -338,21 +356,21 @@ body {
 .modal-contact-header i:hover {
     background-color: var(--secundary-color);
 }
-.modal-contact .btn-confirm {
+.modal .btn-confirm {
     color: var(--green-color);
 }
 .btn-confirm:hover {
     color: #50c554;
 }
 
-.modal-contact .btn-cancel {
+.modal .btn-cancel {
     color: var(--orange-color);
 }
 .btn-cancel:hover {
     color: #f8663a;
 }
 
-.modal-contact .contact-img {
+.modal .contact-img {
     width: 100%;
     padding: 10px 20px;
     text-align: center;
@@ -383,7 +401,6 @@ body {
     width: 100%;
     font-size: 0.85rem;
     border-radius: 5px;
-    margin-top: 5px;
     padding: 10px;
     width: 100%;
     border-radius: 5px;
@@ -393,6 +410,20 @@ body {
 .modal-contact-item-info input:focus {
     border-color: var(--blue-color);
     box-shadow: 0px 0px 1px var(--purple-color);
+}
+
+.modal-contact-multiple-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+[name="ddd"] {
+    padding: 10px;
+    background-color: var(--secundary-color);
+    margin-right: 5px;
+    border: var(--border);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* BACKGROUND-BLACK */
@@ -443,13 +474,13 @@ body {
         font-size: 0.85rem;
     }
 
-    .modal-contact {
+    .modal {
         width: 100%;
         height: 100%;
         border-radius: 0;
     }
 
-    .modal-contact form {
+    .modal form {
         flex: 1;
         display: flex;
         flex-direction: column;

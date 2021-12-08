@@ -26,19 +26,19 @@
                     <!-- <i name="btn_mobile_sidebar" class="fas fa-times"></i> -->
                 </div>
                 <div class="sidebar-content">
-                    <div class="sidebar-nav-item" data-page="page-contacts">
+                    <div class="sidebar-nav-item" data-page="page-contacts" data-path="pages/contacts/index.html">
                         <i class="fa fa-user"></i>
                         <span>Contatos</span>
                     </div>
-                    <div class="sidebar-nav-item" data-page="page-favorites">
+                    <div class="sidebar-nav-item" data-page="page-favorites" data-path="pages/favorites/index.html">
                         <i class="fas fa-star" style="color: var(--yellow-color)"></i>
                         <span>Favoritos</span>
                     </div>
-                    <div class="sidebar-nav-item" data-page="page-blocked">
+                    <div class="sidebar-nav-item" data-page="page-blocked" data-path="pages/blocked/index.html">
                         <i class="fas fa-ban" style="color: var(--orange-color)"></i>
                         <span>Bloqueados</span>
                     </div>
-                    <div class="sidebar-nav-item" data-page="page-about">
+                    <div class="sidebar-nav-item" data-page="page-about" data-path="pages/about/index.html">
                         <i class="fas fa-question-circle"></i>
                         <span>Sobre</span>
                     </div>
@@ -50,59 +50,24 @@
                         <i name="btn_toggle_sidebar" class="fa fa-bars"></i>
                         <h2>Contatos</h2>
                     </div>
-                    <div class="search-field">
-                        <i name="btn_search_field" class="fa fa-search"></i>
-                        <input name="search_field" placeholder="Procurar contato" >
-                    </div>
                 </div>
-                <div class="contacts page">
-                    <div class="contact-list"></div>
-                </div>
+                <div class="pages-content"></div>
             </div>
         </div>
 
         <!-- SEPARATOR -->
-        <div name="btn_show_modal" class="btn-modal">
-            <i class="fas fa-plus"></i>
-        </div>
-        <div class="background-modal">
-            <div class="modal-contact">
-                <div class="modal-contact-header">
-                    <i name="btn_cancel" class="btn-cancel fas fa-times"></i>
-                    <h3>Novo contato</h3>
-                    <i name="btn_create_contact" class="btn-confirm fas fa-check"></i>
-                </div>
-                <i class="contact-img fas fa-user-circle"></i>
-                <form class="modal-form">
-                    <div class="modal-contact-content">
-                        <div class="modal-content-item">
-                            <div class="modal-contact-item-info">
-                                <label>Nome *</label>
-                                <input name="name" placeholder="nome do contato">
-                            </div>
-                        </div>
-                        <div class="modal-content-item">
-                            <div class="modal-contact-item-info">
-                                <label>Telefone *</label>
-                                <input name="phone" placeholder="(33) 9 0011-2200" data-mask="(00) 9 0000-0000">
-                            </div>
-                        </div>
-                        <div class="modal-content-item">
-                            <div class="modal-contact-item-info">
-                                <label>E-mail</label>
-                                <input name="email" placeholder="exemplo@provedor.com" type="email">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="background-black"></div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+        <script src="js/api/fetch-utils.js"></script>
+        <script src="js/api/contacts-api.js"></script>
+
         <script src="js/utils.js"></script>
+        <script src="js/modal-utils.js"></script>
+        <script src="js/contact-modal.js"></script>
+        <script src="js/contact-list.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
