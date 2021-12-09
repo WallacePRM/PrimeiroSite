@@ -1,7 +1,8 @@
 class ContactsApi {
     static saveContacts = (contact) => {
         contact.id = new Date().getTime();
-        const contactList = this.getContacts();
+        let contactList = this.getContacts();
+        if (!contactList) { contactList = []; }
         contactList.push(contact);
 
         const jsoncontactList = JSON.stringify(contactList);
